@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title></title>
+	<style >
+		#box{
+			width: 610px;
+			height: 310px;
+			border: 1px solid black;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<p>框内有图片，请滑动鼠标刮开图片</p>
+	<script >
+		var box=document.getElementById("box")
+		for(var i =0;i<100;i++){
+			var bbox=document.createElement("div")
+			bbox.style.position="absolute"
+			var l=i%10*60
+			var t=parseInt(i/10)*30
+			bbox.style.left=(l+4)+"px"
+			bbox.style.top=(t+4)+"px"
+			bbox.style.width="59px"
+			bbox.style.height="29px"
+			bbox.style.opacity=0;
+			bbox.style.background="url('timg.jpg')"
+			bbox.style.backgroundPosition='-'+l+'px'+' -'+t+'px'
+			box.appendChild(bbox)
+		}
+
+		var arrdiv=document.getElementsByTagName("div")
+		for(var i =0;i<arrdiv.length;i++){
+				arrdiv[i].onmouseover=function(){
+				this.style.opacity=1
+				}
+			}	
+	</script>
+</body>
+</html>
